@@ -221,6 +221,16 @@ resource "aws_iam_policy" "eks_worker_node_alb_controller" {
         "waf:GetWebACL"
       ],
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "wafv2:GetWebACL",
+        "wafv2:GetWebACLForResource",
+        "wafv2:AssociateWebACL",
+        "wafv2:DisassociateWebACL"
+      ],
+      "Resource": "*"
     }
   ]
 }

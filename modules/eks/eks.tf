@@ -48,6 +48,13 @@ resource "aws_eks_node_group" "eks_worker_group" {
     min_size     = var.asg_min
   }
 
+  instance_types = [var.instance_type]
+
+  # Optional: Allow external changes without Terraform plan difference
+  lifecycle {
+    ignore_changes = [scaling_config[0].desired_size]
+  }
+
 }
 
 data "aws_eks_cluster_auth" "example" {

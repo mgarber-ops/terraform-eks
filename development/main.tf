@@ -24,6 +24,7 @@ module "eks" {
   eks_worker_role_arn         = module.iam.eks_worker_node_role
   enable_alb                  = var.enable_alb
   enable_exdns                = var.enable_exdns
+  enable_nginx                = var.enable_nginx
   cluster_name                = var.cluster_name
   node_group_names            = var.node_group_names
   eks_worker_role_attachment  = module.iam.eks_worker_policy_attachment
@@ -34,6 +35,7 @@ module "eks" {
   eks_node_version            = var.eks_node_version
   asg_desired                 = var.asg_desired
   eks_cluster_version         = var.eks_cluster_version
+  instance_type               = var.instance_type
 }
 
 module "efs" {
