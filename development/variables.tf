@@ -22,27 +22,31 @@ variable "eks_control_arns" {
 }
 
 variable "asg_desired" {
-  default = 2
+  default = 3
 }
 
 variable "asg_min" {
-  default = 2
+  default = 3
 }
 
 variable "asg_max" {
-  default = 4
+  default = 3
 }
 variable "enable_alb" {
   default = true
 }
 
 variable "enable_exdns" {
-  default = true
+  default = false
 }
 
 variable "enable_autoscaler" {
   default = true
 
+}
+
+variable "enable_nginx" {
+ default = true
 }
 
 variable "cluster_name" {
@@ -63,5 +67,9 @@ variable "eks_node_version" {
 }
 
 variable "eks_cluster_version" {
-  default = "1.14"
+  default = "1.17"
+}
+
+variable "instance_type" {
+  default = "t3.medium"
 }

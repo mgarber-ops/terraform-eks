@@ -14,6 +14,10 @@ variable "eks_worker_role_arn" {
 variable "enable_alb" {
 }
 
+variable "enable_nginx" {
+
+}
+
 variable "enable_exdns" {
 }
 
@@ -45,5 +49,9 @@ variable "eks_node_version" {
 }
 
 variable "eks_cluster_version" {
+
+}
+
+variable "instance_type" {
 
 }
