@@ -53,7 +53,7 @@ resource "helm_release" "alb_ingress_cntrllr" {
   name       = "aws-alb-ingress-controller"
   chart      = "aws-alb-ingress-controller"
   repository = "http://storage.googleapis.com/kubernetes-charts-incubator"
-  namespace = "kube-system"
+  namespace  = "kube-system"
 
   set {
     name  = "clusterName"
@@ -76,12 +76,12 @@ resource "helm_release" "alb_ingress_cntrllr" {
 resource "helm_release" "nginx_ingress_cntrllr" {
   count = var.enable_nginx ? 1 : 0
   depends_on = [aws_eks_cluster.eks_cluster,
-  aws_eks_node_group.eks_worker_group,
+    aws_eks_node_group.eks_worker_group,
   helm_release.alb_ingress_cntrllr]
   name       = "nginx-ingress-controller"
   chart      = "ingress-nginx"
   repository = "https://kubernetes.github.io/ingress-nginx"
-  namespace = "kube-system"
+  namespace  = "kube-system"
 
   set_string {
     name  = "controller.service.externalTrafficPolicy"

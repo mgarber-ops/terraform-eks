@@ -1,8 +1,8 @@
 locals {
   common_tags = {
-  Environment = "Development"
-  Component   = "EKS"
-  Owner       = "mgarber-ops"
+    Environment = "Development"
+    Component   = "EKS"
+    Owner       = "mgarber-ops"
   }
 }
 
@@ -19,7 +19,7 @@ resource "aws_eks_cluster" "eks_cluster" {
     endpoint_public_access  = true
     public_access_cidrs     = [var.public_access_cidrs]
   }
- tags = merge(map("Name", "eks-cluster-test"), local.common_tags)
+  tags = merge(map("Name", "eks-cluster-test"), local.common_tags)
 }
 
 resource "aws_eks_node_group" "eks_worker_group" {
@@ -31,10 +31,10 @@ resource "aws_eks_node_group" "eks_worker_group" {
   cluster_name    = aws_eks_cluster.eks_cluster.id
   node_group_name = element(var.node_group_names, count.index)
   node_role_arn   = var.eks_worker_role_arn
-  subnet_ids = var.subnet_ids
-  
- tags = merge(map("Name", "eks-node-group-${count.index}", "k8s.io/cluster-autoscaler/${var.cluster_name}", "owned", "k8s.io/cluster-autoscaler/enabled", "true" ), local.common_tags)
-                   
+  subnet_ids      = var.subnet_ids
+
+  tags = merge(map("Name", "eks-node-group-${count.index}", "k8s.io/cluster-autoscaler/${var.cluster_name}", "owned", "k8s.io/cluster-autoscaler/enabled", "true"), local.common_tags)
+
   release_version = var.eks_node_version
 
   scaling_config {

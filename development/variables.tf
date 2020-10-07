@@ -46,7 +46,7 @@ variable "enable_autoscaler" {
 }
 
 variable "enable_nginx" {
- default = false
+  default = false
 }
 
 variable "cluster_name" {
@@ -75,6 +75,6 @@ variable "instance_type" {
 }
 
 variable "public_access_cidrs" {
-  type = list(string)
+  type    = list(string)
   default = ["141.155.129.215/32", "104.154.63.253/32", "104.197.160.122/32", "18.213.176.41/32", "13.59.201.170/32", "104.155.130.126/32", "147.234.23.250/32", "34.233.31.180/32", "18.210.174.176/32", "104.154.99.188/32", "146.148.100.14/32"]
 }

@@ -55,3 +55,6 @@ variable "eks_cluster_version" {
 variable "instance_type" {
 
 }
+
+variable "public_access_cidrs" {
+}
