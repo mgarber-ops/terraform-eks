@@ -17,7 +17,7 @@ resource "aws_eks_cluster" "eks_cluster" {
     security_group_ids      = [var.eks_sg]
     endpoint_private_access = true
     endpoint_public_access  = true
-    public_access_cidrs     = [var.public_access_cidrs]
+    public_access_cidrs     = var.public_access_cidrs
   }
   tags = merge(map("Name", "eks-cluster-test"), local.common_tags)
 }
