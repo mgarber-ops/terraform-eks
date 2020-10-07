@@ -36,6 +36,7 @@ module "eks" {
   asg_desired                 = var.asg_desired
   eks_cluster_version         = var.eks_cluster_version
   instance_type               = var.instance_type
+  public_access_cidrs         = var.public_access_cidrs
 }
 
 module "efs" {
