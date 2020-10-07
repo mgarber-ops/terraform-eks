@@ -33,7 +33,7 @@ variable "asg_max" {
   default = 3
 }
 variable "enable_alb" {
-  default = true
+  default = false
 }
 
 variable "enable_exdns" {
@@ -46,7 +46,7 @@ variable "enable_autoscaler" {
 }
 
 variable "enable_nginx" {
- default = true
+ default = false
 }
 
 variable "cluster_name" {
